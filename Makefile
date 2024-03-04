@@ -6,7 +6,7 @@
 #    By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/01 18:12:20 by ayarmaya          #+#    #+#              #
-#    Updated: 2024/03/04 01:53:34 by ayarmaya         ###   ########.fr        #
+#    Updated: 2024/03/04 02:10:07 by ayarmaya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ SRCS		=	$(addprefix $(PATH_SRC), $(SRC))
 OBJS		=	$(SRCS:.c=.o)
 CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror
-HEADERS		=	-I./include
 LIBFT		=	libft/libft.a
+HEADERS		=	-I./include -I./libft/include
 RM			= 	rm -f
 
 all:		$(NAME)
@@ -27,7 +27,6 @@ all:		$(NAME)
 $(NAME): 	$(OBJS)
 			make -C libft
 			$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME) $(HEADERS)
-			make clean
 
 %.o: 		%.c
 			$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
