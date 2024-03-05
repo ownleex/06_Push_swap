@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:55:57 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/04 02:01:12 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/04 15:09:38 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "ft_printf.h"
+# include "libft.h"
 
 typedef struct		s_stack
 {
