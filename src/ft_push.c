@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/01 17:55:57 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/07 14:16:41 by ayarmaya         ###   ########.fr       */
+/*   Created: 2024/03/07 14:15:25 by ayarmaya          #+#    #+#             */
+/*   Updated: 2024/03/07 14:27:24 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "ft_printf.h"
-# include "libft.h"
+void	push(t_list **src, t_list **dest)
+{
+	t_list	*first;
 
-void	swap(t_list **stack);
-void	sa(t_list **a);
-void	sb(t_list **b);
-void	ss(t_list **a, t_list **b);
+	if (*src)
+	{
+		first = *src;
+		*src = (*src)->next;
+		first->next = *dest;
+		*dest = first;
+	}
+}
 
-void	push(t_list **src, t_list **dest);
-void	pa(t_list **a, t_list **b);
-void	pb(t_list **a, t_list **b);
+void	pa(t_list **a, t_list **b)
+{
+	push(b, a);
+}
 
-#endif
+void	pb(t_list **a, t_list **b)
+{
+	push(a, b);
+}

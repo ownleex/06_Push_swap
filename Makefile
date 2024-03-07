@@ -6,13 +6,14 @@
 #    By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/01 18:12:20 by ayarmaya          #+#    #+#              #
-#    Updated: 2024/03/04 14:17:36 by ayarmaya         ###   ########.fr        #
+#    Updated: 2024/03/07 14:27:18 by ayarmaya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	push_swap
 PATH_SRC	=	src/
-SRC			=	ft_fonction.c \
+SRC			=	ft_push.c \
+				ft_swap.c \
 				ft_main.c
 SRCS		=	$(addprefix $(PATH_SRC), $(SRC))
 OBJS		=	$(SRCS:.c=.o)

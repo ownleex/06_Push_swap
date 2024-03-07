@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:46 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/07 02:32:28 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/07 14:20:17 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int argc, char **argv)
 	if (argc < 3)
 	{
 		ft_printf("Usage: %s number1 number2 ...\n", argv[0]);
-		return (0);
+		return (1);
 	}
 	i = 0;
 	while (++i < argc)
@@ -48,7 +48,7 @@ int	main(int argc, char **argv)
 		{
 			ft_printf("Error\n");
 			ft_lstclear(&stack, free);
-			return (0);
+			return (1);
 		}
 		value = malloc(sizeof(int));
 		if (!value)
@@ -67,5 +67,5 @@ int	main(int argc, char **argv)
 		stack = stack->next;
 	}
 	ft_lstclear(&stack, free);
-	return (1);
+	return (0);
 }
