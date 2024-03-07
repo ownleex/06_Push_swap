@@ -6,15 +6,15 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:55:35 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/03 17:25:09 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/07 00:37:25 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack **a)
+void	sa(t_list **a)
 {
-	t_stack	*tmp;
+	t_list	*tmp;
 
 	if (*a && (*a)->next)
 	{

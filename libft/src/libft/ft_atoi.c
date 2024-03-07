@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:44:33 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/01/18 05:08:10 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/07 00:48:03 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_atoi(const char *str)
 /*
 int	main(void)
 {
-	printf("%d\n", ft_atoi("    -44575dgs"));
+	printf("%d\n", ft_atoi("    -432432dgs"));
 	return (0);
 }
 */

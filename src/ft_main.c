@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:46 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/05 03:41:38 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/07 01:15:47 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,32 +32,40 @@ int	is_number(char *str)
 
 int	main(int argc, char **argv)
 {
-	int	i;
-	int	*numbers;
+	int		i;
+	t_list	*stack = NULL;
+	int		*value;
 
 	if (argc < 3)
 	{
-		ft_printf("Error\n");
+		ft_printf("Usage: %s number1 number2 ...\n", argv[0]);
 		return (0);
 	}
-	numbers = (int *)malloc(sizeof(int) * argc - 1);
-	if (!numbers)
-		return (1);
 	i = 0;
-	while (i < argc -1)
+	while (++i < argc)
 	{
-		if (!is_number(argv[i + 1]))
+		if (!is_number(argv[i]))
 		{
 			ft_printf("Error\n");
-			free(numbers);
+			ft_lstclear(&stack, free);
 			return (0);
 		}
-		numbers[i] = ft_atoi(argv[i + 1]);
-		ft_printf("%d\n", numbers[i]);
-		i++;
+		value = malloc(sizeof(int));
+		if (!value)
+		{
+			ft_printf("Malloc failed\n");
+			ft_lstclear(&stack, free);
+			return (1);
+		}
+		*value = ft_atoi(argv[i]);
+		ft_lstadd_back(&stack, ft_lstnew(value));
 	}
-	// Utilisez maintenant le tableau `numbers` pour votre logique de tri...
-
-	free(numbers);
+	// Parcourir et imprimer chaque nombre
+	while (stack)
+	{
+		ft_printf("%d\n", *(int *)stack->content);
+		stack = stack->next;
+	}
+	ft_lstclear(&stack, free);
 	return (1);
 }
