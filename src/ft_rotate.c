@@ -1,42 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/01 17:55:35 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/07 17:41:47 by ayarmaya         ###   ########.fr       */
+/*   Created: 2024/03/07 14:30:02 by ayarmaya          #+#    #+#             */
+/*   Updated: 2024/03/07 20:10:00 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_list **stack)
+void	rotate(t_list **stack)
 {
-	t_list	*tmp;
+	t_list	*first;
+	t_list	*last;
 
 	if (*stack && (*stack)->next)
 	{
-		tmp = (*stack)->next;
-		(*stack)->next = tmp->next;
-		tmp->next = *stack;
-		*stack = tmp;
+		first = *stack;
+		last = *stack;
+		while (last->next)
+			last = last->next;
+		*stack = first->next;
+		first->next = NULL;
+		last->next = first;
 	}
 }
 
-void	sa(t_stacks *stacks)
+void	ra(t_stacks *stacks)
 {
-	swap(&(stacks->a));
+	rotate(&(stacks->a));
 }
 
-void	sb(t_stacks *stacks)
+void	rb(t_stacks *stacks)
 {
-	swap(&(stacks->b));
+	rotate(&(stacks->b));
 }
 
-void	ss(t_stacks *stacks)
+void	rr(t_stacks *stacks)
 {
-	swap(&(stacks->a));
-	swap(&(stacks->b));
+	rotate(&(stacks->a));
+	rotate(&(stacks->b));
 }
