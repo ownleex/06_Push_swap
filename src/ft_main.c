@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:46 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/07 20:24:56 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/07 20:50:32 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,9 @@ int	main(int argc, char **argv)
 		*value = ft_atoi(argv[i]);
 		ft_lstadd_back(&(stacks.a), ft_lstnew(value));
 	}
+	pb(&stacks);
+	pb(&stacks);
+	pb(&stacks);
 	print_stack_a(stacks.a);
 	print_stack_b(stacks.b);
 	ft_lstclear(&(stacks.a), free);
