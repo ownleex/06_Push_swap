@@ -1,26 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fonction.c                                      :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:55:35 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/07 00:37:25 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/07 14:11:19 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_list **a)
+void	swap(t_list **stack)
 {
 	t_list	*tmp;
 
-	if (*a && (*a)->next)
+	if (*stack && (*stack)->next)
 	{
-		tmp = (*a)->next;
-		(*a)->next = tmp->next;
-		tmp->next = *a;
-		*a = tmp;
+		tmp = (*stack)->next;
+		(*stack)->next = tmp->next;
+		tmp->next = *stack;
+		*stack = tmp;
 	}
+}
+
+void	sa(t_list **a)
+{
+	swap(a);
+}
+
+void	sb(t_list **b)
+{
+	swap(b);
+}
+
+void	ss(t_list **a, t_list **b)
+{
+	swap(a);
+	swap(b);
 }
