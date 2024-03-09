@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:46 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/09 14:42:04 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/09 17:26:22 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,6 @@ void	sort_stack(t_stacks *stacks)
 			ra(stacks); // Rotate jusqu'à ce que l'élément le plus petit soit en haut de la pile
 		pb(stacks); // Pousse le plus petit élément dans la pile b
 	}
-			print_stack_a(stacks->a);
-		print_stack_b(stacks->b);
 	while (ft_lstsize(stacks->b) > 0)
 		pa(stacks); // Replace tous les éléments de la pile b vers la pile a
 }
@@ -140,6 +138,8 @@ int	main(int argc, char **argv)
 	pb(&stacks);
 	pb(&stacks);
 	pb(&stacks);*/
+	print_stack_a(stacks.a);
+	print_stack_b(stacks.b);
 	sort_stack(&stacks);
 	print_stack_a(stacks.a);
 	print_stack_b(stacks.b);
