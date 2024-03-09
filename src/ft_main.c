@@ -6,62 +6,11 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:46 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/08 22:21:48 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/09 14:42:04 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	sort_stack(t_stacks *stacks)
-{
-	int		min;
-	t_list	*tmp;
-	int		index;
-	int		size;
-
-	while (ft_lstsize(stacks->a) > 0)
-	{
-		tmp = stacks->a;
-		min = *(int *)tmp->content;
-		index = 0;
-		size = ft_lstsize(stacks->a);
-		for (int i = 0; i < size; i++)
-		{
-			if (*(int *)tmp->content < min)
-			{
-				min = *(int *)tmp->content;
-				index = i;
-			}
-			tmp = tmp->next;
-		}
-		for (int i = 0; i <= index; i++)
-			ra(stacks); // Rotate jusqu'à ce que l'élément le plus petit soit en haut de la pile
-		pb(stacks); // Pousse le plus petit élément dans la pile b
-	}
-			print_stack_a(stacks->a);
-		print_stack_b(stacks->b);
-	while (ft_lstsize(stacks->b) > 0)
-		pa(stacks); // Replace tous les éléments de la pile b vers la pile a
-}
-
-
-int	is_number(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (str[i] == '+' || str[i] == '-')
-		i++;
-	if (!str[i])
-		return (0);
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]))
-			return (0);
-		i++;
-	}
-	return (1);
-}
 
 void	print_stack_a(t_list *stack_a)
 {
@@ -101,6 +50,56 @@ void	print_stack_b(t_list *stack_b)
 			current = current->next;
 		}
 	}
+}
+
+void	sort_stack(t_stacks *stacks)
+{
+	int		min;
+	t_list	*tmp;
+	int		index;
+	int		size;
+
+	while (ft_lstsize(stacks->a) > 0)
+	{
+		tmp = stacks->a;
+		min = *(int *)tmp->content;
+		index = 0;
+		size = ft_lstsize(stacks->a);
+		for (int i = 0; i < size; i++)
+		{
+			if (*(int *)tmp->content < min)
+			{
+				min = *(int *)tmp->content;
+				index = i;
+			}
+			tmp = tmp->next;
+		}
+		for (int i = 0; i <= index; i++)
+			ra(stacks); // Rotate jusqu'à ce que l'élément le plus petit soit en haut de la pile
+		pb(stacks); // Pousse le plus petit élément dans la pile b
+	}
+			print_stack_a(stacks->a);
+		print_stack_b(stacks->b);
+	while (ft_lstsize(stacks->b) > 0)
+		pa(stacks); // Replace tous les éléments de la pile b vers la pile a
+}
+
+int	is_number(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	if (!str[i])
+		return (0);
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 int	main(int argc, char **argv)
