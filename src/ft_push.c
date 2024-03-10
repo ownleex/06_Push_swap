@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:15:25 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/07 18:01:35 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/10 01:56:37 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@ void	push(t_list **src, t_list **dest)
 void	pa(t_stacks *stacks)
 {
 	push(&(stacks->b), &(stacks->a));
+	ft_printf("pa\n");
 }
 
 void	pb(t_stacks *stacks)
 {
 	push(&(stacks->a), &(stacks->b));
+	ft_printf("pb\n");
 }

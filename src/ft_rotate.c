@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:30:02 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/09 14:50:18 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/10 01:56:15 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,18 @@ void	rotate(t_list **stack)
 void	ra(t_stacks *stacks)
 {
 	rotate(&(stacks->a));
+	ft_printf("ra\n");
 }
 
 void	rb(t_stacks *stacks)
 {
 	rotate(&(stacks->b));
+	ft_printf("rb\n");
 }
 
 void	rr(t_stacks *stacks)
 {
 	rotate(&(stacks->a));
 	rotate(&(stacks->b));
+	ft_printf("rr\n");
 }

@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:33:00 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/07 17:30:58 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/10 01:56:03 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,18 @@ void	reverse_rotate(t_list **stack)
 void	rra(t_stacks *stacks)
 {
 	reverse_rotate(&(stacks->a));
+	ft_printf("rra\n");
 }
 
 void	rrb(t_stacks *stacks)
 {
 	reverse_rotate(&(stacks->b));
+	ft_printf("rrb\n");
 }
 
 void	rrr(t_stacks *stacks)
 {
 	reverse_rotate(&(stacks->a));
 	reverse_rotate(&(stacks->b));
+	ft_printf("rrr\n");
 }

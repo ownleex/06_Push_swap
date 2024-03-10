@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:55:35 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/09 17:19:32 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/10 01:56:27 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,18 @@ void	swap(t_list **stack)
 void	sa(t_stacks *stacks)
 {
 	swap(&(stacks->a));
+	ft_printf("sa\n");
 }
 
 void	sb(t_stacks *stacks)
 {
 	swap(&(stacks->b));
+	ft_printf("sb\n");
 }
 
 void	ss(t_stacks *stacks)
 {
 	swap(&(stacks->a));
 	swap(&(stacks->b));
+	ft_printf("ss\n");
 }
