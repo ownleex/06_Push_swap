@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:46 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/10 02:02:56 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/10 04:27:33 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ int	main(int argc, char **argv)
 	{
 		if (!is_number(argv[i]))
 		{
-			ft_printf("Error\n");
+			write(2, "Error\n", 6);
 			ft_lstclear(&(stacks.a), free);
 			ft_lstclear(&(stacks.b), free);
 			return (1);
@@ -127,7 +127,7 @@ int	main(int argc, char **argv)
 		value = malloc(sizeof(int));
 		if (!value)
 		{
-			ft_printf("Malloc failed\n");
+			write(2, "Error\n", 6);
 			ft_lstclear(&(stacks.a), free);
 			ft_lstclear(&(stacks.b), free);
 			return (1);
