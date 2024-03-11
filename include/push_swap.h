@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:55:57 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/09 17:19:42 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/11 00:43:34 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include "libft.h"
 
 typedef struct s_stacks {
-    t_list *a;
-    t_list *b;
+	t_list *a;
+	t_list *b;
 } t_stacks;
 
 //ft_main.c
