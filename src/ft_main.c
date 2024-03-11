@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:46 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/11 00:11:00 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/11 01:09:39 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,10 @@ void	print_stack_b(t_list *stack_b)
 void	sort_stack(t_stacks *stacks)
 {
 	int		min, index, size;
+	t_list	*tmp;
 
 	while (ft_lstsize(stacks->a) > 0)
 	{
-		t_list	*tmp;
-
 		tmp = stacks->a;
 		min = *(int *)tmp->content;
 		index = 0;
