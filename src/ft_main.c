@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:46 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/11 01:09:39 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/12 03:14:20 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,12 +110,18 @@ int	main(int argc, char **argv)
 
 	stacks.a = NULL;
 	stacks.b = NULL;
-	if (argc < 3)
+	if (argc < 3 && argc != 2)
 	{
 		ft_printf("Usage: %s number1 number2 ...\n", argv[0]);
 		return (1);
 	}
-	i = 0;
+	else if (argc == 2)
+	{
+		argv = ft_split(argv[1], ' ');
+		i = -1;
+	}
+	else
+		i = 0;
 	while (++i < argc)
 	{
 		if (!is_number(argv[i]))
