@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:55:57 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/19 18:20:46 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/19 18:50:44 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	sort_stack(t_stacks *stacks);
 
 //ft_big_sort.c
 void	big_sort(t_stacks *stacks);
+void	min_on_top(t_stacks *stacks, t_list **a);
+t_list	*find_min(t_list *head);
 
 //ft_init_a_to_b.c
 void	init_nodes_a(t_stacks *stacks);
@@ -44,12 +46,17 @@ void	set_cheapest(t_list *stack);
 
 //ft_init_b_to_a.c
 void	init_nodes_b(t_stacks *stacks);
+void	set_target_b(t_stacks *stacks);
 
-//ft_move.c
+//ft_move_a_to_b.c
 void	move_a_to_b(t_stacks *stacks);
 t_list	*get_cheapest(t_list *head);
 void	rotate_booth(t_stacks *stacks, t_list *cheapest_node);
 void	rev_rotate_booth(t_stacks *stacks, t_list *cheapest_node);
+void	prep_for_push(t_stacks *stacks, t_list **stack, t_list *top_node, char stack_name);
+
+//ft_move_a_to_b.c
+void	move_b_to_a(t_stacks *stacks);
 
 //ft_swap.c
 void	swap(t_list **stack);

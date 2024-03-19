@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:46 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/19 14:41:23 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/19 20:28:46 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	main(int argc, char **argv)
 	int			i;
 	t_stacks	stacks;
 	int			*value;
-	char		**args; // Tableau pour les arguments après le split
+	char		**args;
 
 	stacks.a = NULL;
 	stacks.b = NULL;
@@ -85,7 +85,10 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	if (argc == 2)
+	{
 		args = ft_split(argv[1], ' ');
+		argc--;
+	}
 	else
 	{
 		args = argv + 1; // Utilisez argv directement, en sautant le nom du programme

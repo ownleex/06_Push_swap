@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:27:39 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/19 17:03:39 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/19 18:59:15 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	set_cheapest(t_list *stack)
 	t_list	*cheapest_node;
 
 	if (!stack)
-		return;
+		return ;
 	cheapest_value = LONG_MAX;
 	while (stack)
 	{
@@ -64,7 +64,8 @@ void	set_target_a(t_stacks *stacks)
 		current_b = stacks->b;
 		while (current_b)
 		{
-			if (current_b->content < stacks->a->content && *(int *)current_b->content > best_index)
+			if (current_b->content < stacks->a->content && \
+			*(int *)current_b->content > best_index)
 			{
 				best_index = *(int *)current_b->content;
 				target_node = current_b;
@@ -86,7 +87,7 @@ void	current_index(t_list *stack)
 
 	i = 0;
 	if (!stack)
-		return;
+		return ;
 	median = count_elements(stack) / 2;
 	while (stack)
 	{
