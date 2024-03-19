@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:46 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/12 04:18:28 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/19 14:41:23 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,38 +52,6 @@ void	print_stack_b(t_list *stack_b)
 	}
 }
 
-void	sort_stack(t_stacks *stacks)
-{
-	int		min, index, size;
-	t_list	*tmp;
-
-	while (ft_lstsize(stacks->a) > 0)
-	{
-		tmp = stacks->a;
-		min = *(int *)tmp->content;
-		index = 0;
-		size = ft_lstsize(stacks->a);
-		for (int i = 0; i < size; i++)
-		{
-			if (*(int *)tmp->content < min)
-			{
-				min = *(int *)tmp->content;
-				index = i;
-			}
-			tmp = tmp->next;
-		}
-		if (index <= size / 2)
-			while (index-- > 0)
-				ra(stacks);
-		else
-			while (index++ < size)
-				rra(stacks);
-		pb(stacks);
-	}
-	while (ft_lstsize(stacks->b) > 0)
-		pa(stacks);
-}
-
 int	is_number(char *str)
 {
 	int	i;
@@ -107,6 +75,7 @@ int	main(int argc, char **argv)
 	int			i;
 	t_stacks	stacks;
 	int			*value;
+	char		**args; // Tableau pour les arguments après le split
 
 	stacks.a = NULL;
 	stacks.b = NULL;
@@ -115,16 +84,17 @@ int	main(int argc, char **argv)
 		ft_printf("Usage: %s number1 number2 ...\n", argv[0]);
 		return (1);
 	}
-	else if (argc == 2)
-	{
-		argv = ft_split(argv[1], ' ');
-		i = -1;
-	}
+	if (argc == 2)
+		args = ft_split(argv[1], ' ');
 	else
-		i = 0;
-	while (++i < argc)
 	{
-		if (!is_number(argv[i]))
+		args = argv + 1; // Utilisez argv directement, en sautant le nom du programme
+		argc--; // Ajustez argc pour refléter le décalage
+	}
+	i = 0;
+	while (args[i])
+	{ // Continuez tant que l'élément courant du tableau d'arguments n'est pas NULL
+		if (!is_number(args[i]))
 		{
 			write(2, "Error\n", 6);
 			ft_lstclear(&(stacks.a), free);
@@ -139,10 +109,20 @@ int	main(int argc, char **argv)
 			ft_lstclear(&(stacks.b), free);
 			return (1);
 		}
-		*value = ft_atoi(argv[i]);
+		*value = ft_atoi(args[i]);
 		ft_lstadd_back(&(stacks.a), ft_lstnew(value));
+		i++;
 	}
 	sort_stack(&stacks);
+	if (argc == 1)// Si ft_split a été utilisé
+	{
+		i = 0;
+		while (args[i]) {
+			free(args[i]);
+			i++;
+		}
+		free(args);
+	}
 	ft_lstclear(&(stacks.a), free);
 	ft_lstclear(&(stacks.b), free);
 	return (0);

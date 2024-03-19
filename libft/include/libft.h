@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:39:17 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/21 02:17:01 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/19 14:26:42 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,15 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include "ft_printf.h"
+# include <stdbool.h>
 
 typedef struct s_list
 {
+	int				index;
+	int				nbr;
+	int				push_cost;
+	bool			above_median;
+	bool			cheapest;
 	void			*content;
 	struct s_list	*next;
 }	t_list;
