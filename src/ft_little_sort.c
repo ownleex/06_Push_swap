@@ -6,44 +6,41 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:39:43 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/19 14:44:49 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/19 16:55:20 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_max(t_list *stack)
+t_list	*find_max(t_list *stack)
 {
-	int	max;
-	int	index;
-	int	max_index;
-	t_list	*current;
+	t_list	*max_node;
+	int		max;
 
+	if (!stack)
+		return (NULL);
 	max = *(int *)stack->content;
-	max_index = 0;
-	index = 0;
-	current = stack;
-	while (current)
+	max_node = stack;
+	while (stack)
 	{
-		if (*(int *)current->content > max)
+		if (*(int *)stack->content > max)
 		{
-			max = *(int *)current->content;
-			max_index = index;
+			max = *(int *)stack->content;
+			max_node = stack;
 		}
-		index++;
-		current = current->next;
+		stack = stack->next;
 	}
-	return (max_index);
+	return (max_node);
 }
 
 void	sort_three(t_stacks *stacks)
 {
-	int	max_index;
+	t_list	*max_node;
 
-	max_index = find_max(stacks->a);
-	if (max_index == 0)
+	max_node = find_max(stacks->a);
+	if (max_node == stacks->a)
 		ra(stacks);
-	else if (max_index == 1)
+	else if (max_node == stacks->a->next)
 		rra(stacks);
 	if (*(int *)stacks->a->content > *(int *)stacks->a->next->content)
 		sa(stacks);

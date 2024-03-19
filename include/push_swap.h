@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:55:57 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/19 14:43:32 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/19 16:51:07 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "ft_printf.h"
 # include "libft.h"
+# include <limits.h>
 
 typedef struct s_stacks {
 	t_list *a;
@@ -25,13 +26,21 @@ typedef struct s_stacks {
 int     is_number(char *str);
 
 //ft_little_sort.c
-int		find_max(t_list *stack);
+t_list	*find_max(t_list *stack);
 void	sort_three(t_stacks *stacks);
 int		count_elements(t_list *stack);
 int		is_sorted(t_list *stack);
 void	sort_stack(t_stacks *stacks);
 
+//ft_big_sort.c
+void	big_sort(t_stacks *stacks);
+
 //ft_init_a_to_b.c
+void	init_nodes_a(t_stacks *stacks);
+void	current_index(t_list *stack);
+void	set_target_a(t_stacks *stacks);
+void	cost_analysis_a(t_stacks *stacks);
+void	set_cheapest(t_list *stack);
 
 //ft_swap.c
 void	swap(t_list **stack);
