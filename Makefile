@@ -6,7 +6,7 @@
 #    By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/01 18:12:20 by ayarmaya          #+#    #+#              #
-#    Updated: 2024/03/19 17:11:35 by ayarmaya         ###   ########.fr        #
+#    Updated: 2024/03/19 18:17:50 by ayarmaya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ SRC			=	ft_push.c \
 				ft_little_sort.c \
 				ft_big_sort.c \
 				ft_init_a_to_b.c \
-				ft_moove_to.c \
+				ft_init_b_to_a.c \
+				ft_move_a_to_b.c \
 				ft_main.c
 SRCS		=	$(addprefix $(PATH_SRC), $(SRC))
 OBJS		=	$(SRCS:.c=.o)
