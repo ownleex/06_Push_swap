@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:27:39 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/19 18:59:15 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/20 23:54:23 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void	set_cheapest(t_list *stack)
 {
 	long	cheapest_value;
-	t_list	*cheapest_node;
+	t_list	*cheapest_node = NULL;
 
 	if (!stack)
-		return ;
-	cheapest_value = LONG_MAX;
+		return;
+	cheapest_value = INT_MAX;
 	while (stack)
 	{
 		if (stack->push_cost < cheapest_value)
@@ -29,74 +29,77 @@ void	set_cheapest(t_list *stack)
 		}
 		stack = stack->next;
 	}
-	cheapest_node->cheapest = true;
+	if (cheapest_node) // Vérifiez que cheapest_node n'est pas NULL avant de déréférencer
+		cheapest_node->cheapest = true;
 }
 
 void	cost_analysis_a(t_stacks *stacks)
 {
+	t_list	*current_a;
 	int		len_a;
 	int		len_b;
 
+	current_a = stacks->a; // Utilisez un pointeur temporaire pour parcourir
 	len_a = count_elements(stacks->a);
 	len_b = count_elements(stacks->b);
-	while (stacks->a)
+	while (current_a)
 	{
-		stacks->a->push_cost = stacks->a->index;
-		if (!(stacks->a->above_median))
-			stacks->a->push_cost = len_a - (stacks->a->index);
-		if (stacks->a->target_node->above_median)
-			stacks->a->push_cost += stacks->a->target_node->index;
-		else
-			stacks->a->push_cost += len_b - stacks->a->target_node->index;
-		stacks->a = stacks->a->next;
+		current_a->push_cost = current_a->index;
+		if (!(current_a->above_median))
+			current_a->push_cost = len_a - (current_a->index);
+		if (current_a->target_node && current_a->target_node->above_median) // Vérifiez que target_node n'est pas NULL
+			current_a->push_cost += current_a->target_node->index;
+		else if (current_a->target_node) // Vérifiez aussi ici
+			current_a->push_cost += len_b - current_a->target_node->index;
+		current_a = current_a->next;
 	}
 }
 
 void	set_target_a(t_stacks *stacks)
 {
+	t_list	*current_a;
 	t_list	*current_b;
 	t_list	*target_node;
 	long	best_index;
 
-	while (stacks->a)
+	current_a = stacks->a; // Utilisez un pointeur temporaire pour parcourir
+	while (current_a)
 	{
-		best_index = LONG_MIN;
+		best_index = INT_MIN;
 		current_b = stacks->b;
+		target_node = NULL; // Initialisez target_node à NULL
 		while (current_b)
 		{
-			if (current_b->content < stacks->a->content && \
-			*(int *)current_b->content > best_index)
+			if (*(int *)current_b->content < *(int *)current_a->content && 
+				*(int *)current_b->content > best_index)
 			{
 				best_index = *(int *)current_b->content;
 				target_node = current_b;
 			}
 			current_b = current_b->next;
 		}
-		if (best_index == LONG_MIN)
-			stacks->a->target_node = find_max(stacks->b);
+		if (best_index == INT_MIN)
+			current_a->target_node = find_max(stacks->b);
 		else
-			stacks->a->target_node = target_node;
-		stacks->a = stacks->a->next;
+			current_a->target_node = target_node;
+		current_a = current_a->next;
 	}
 }
 
 void	current_index(t_list *stack)
 {
-	int		i;
+	t_list	*current = stack; // Renommez pour clarté et utilisez un pointeur temporaire
+	int		i = 0;
 	int		median;
 
-	i = 0;
 	if (!stack)
-		return ;
+		return;
 	median = count_elements(stack) / 2;
-	while (stack)
+	while (current)
 	{
-		stack->index = i;
-		if (i <= median)
-			stack->above_median = true;
-		else
-			stack->above_median = false;
-		stack = stack->next;
+		current->index = i;
+		current->above_median = i <= median;
+		current = current->next;
 		i++;
 	}
 }
