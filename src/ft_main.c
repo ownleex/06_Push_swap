@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:46 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/22 23:30:06 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/23 00:37:42 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,13 +114,13 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	sort_stack(&stacks);
-	//ft_printf("test\n");
 	//print_stack_a(stacks.a);
 	//print_stack_b(stacks.b);
 	if (argc == 1)// Si ft_split a été utilisé
 	{
 		i = 0;
-		while (args[i]) {
+		while (args[i])
+		{
 			free(args[i]);
 			i++;
 		}
@@ -128,5 +128,6 @@ int	main(int argc, char **argv)
 	}
 	ft_lstclear(&(stacks.a), free);
 	ft_lstclear(&(stacks.b), free);
+	//ft_printf("test\n");
 	return (0);
 }
