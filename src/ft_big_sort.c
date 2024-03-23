@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 15:15:25 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/23 02:09:09 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/23 02:40:59 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	big_sort(t_stacks *stacks)
 	pb(stacks);
 	while (--len_a)
 	{
-		init_nodes_a(stacks);
+		init_nodes(stacks);
 		move_a_to_b(stacks);
 	}
 	while (stacks->b)

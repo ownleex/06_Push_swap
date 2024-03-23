@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:27:39 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/23 01:26:57 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/23 02:41:56 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	set_cheapest(t_list *stack)
 		cheapest_node->cheapest = true;
 }
 
-void	cost_analysis_a(t_stacks *stacks)
+void	cost_analysis(t_stacks *stacks)
 {
 	t_list	*current_a;
 	int		len_a;
@@ -56,7 +56,7 @@ void	cost_analysis_a(t_stacks *stacks)
 	}
 }
 
-void	set_target_a(t_stacks *stacks)
+void	set_target(t_stacks *stacks)
 {
 	t_list	*current_a;
 	t_list	*current_b;
@@ -107,11 +107,11 @@ void	current_index(t_list *stack)
 	}
 }
 
-void	init_nodes_a(t_stacks *stacks)
+void	init_nodes(t_stacks *stacks)
 {
 	current_index(stacks->a);
 	current_index(stacks->b);
-	set_target_a(stacks);
-	cost_analysis_a(stacks);
+	set_target(stacks);
+	cost_analysis(stacks);
 	set_cheapest(stacks->a);
 }

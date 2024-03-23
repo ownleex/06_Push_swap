@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:55:57 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/23 02:29:07 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/23 02:41:45 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_stacks {
 } t_stacks;
 
 //ft_main.c
+int		main(int argc, char **argv);
 int     is_number(char *str);
 void	free_all(t_stacks *stacks, char **args, int argc, char c);
 
@@ -39,10 +40,10 @@ void	min_on_top(t_stacks *stacks, t_list **a);
 t_list	*find_min(t_list *head);
 
 //ft_init_a_to_b.c
-void	init_nodes_a(t_stacks *stacks);
+void	init_nodes(t_stacks *stacks);
 void	current_index(t_list *stack);
-void	set_target_a(t_stacks *stacks);
-void	cost_analysis_a(t_stacks *stacks);
+void	set_target(t_stacks *stacks);
+void	cost_analysis(t_stacks *stacks);
 void	set_cheapest(t_list *stack);
 
 
