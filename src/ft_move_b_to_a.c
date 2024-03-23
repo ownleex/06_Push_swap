@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 18:29:00 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/22 01:05:39 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/23 01:23:33 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 void	move_b_to_a(t_stacks *stacks)
 {
-	//prep_for_push(stacks, &stacks->a, stacks->b->target_node, 'a');
 	pa(stacks);
 }

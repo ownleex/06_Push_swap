@@ -6,50 +6,30 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:46 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/23 00:37:42 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/23 01:33:55 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stack_a(t_list *stack_a)
+void	free_all(t_stacks *stacks, char **args, int argc, char c)
 {
-	t_list	*current;
+	int		i;
 
-	if (stack_a == NULL)
+	if (argc == 2)
 	{
-		ft_printf("Pile a est vide.\n");
-	}
-	else
-	{
-		ft_printf("Pile a:\n");
-		current = stack_a;
-		while (current != NULL)
+		i = 0;
+		while (args[i])
 		{
-			ft_printf("%d\n", *(int *)current->content);
-			current = current->next;
+			free(args[i]);
+			i++;
 		}
+		free(args);
 	}
-}
-
-void	print_stack_b(t_list *stack_b)
-{
-	t_list	*current;
-
-	if (stack_b == NULL)
-	{
-		ft_printf("Pile b est vide.\n");
-	}
-	else
-	{
-		ft_printf("Pile b:\n");
-		current = stack_b;
-		while (current != NULL)
-		{
-			ft_printf("%d\n", *(int *)current->content);
-			current = current->next;
-		}
-	}
+	ft_lstclear(&(stacks->a), free);
+	ft_lstclear(&(stacks->b), free);
+	if (c == '1')
+		write(2, "Error\n", 6);
 }
 
 int	is_number(char *str)
@@ -87,26 +67,19 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 		args = ft_split(argv[1], ' ');
 	else
-	{
-		args = argv + 1; // Utilisez argv directement, en sautant le nom du programme
-		argc--; // Ajustez argc pour refléter le décalage
-	}
+		args = argv + 1;
 	i = 0;
 	while (args[i])
-	{ // Continuez tant que l'élément courant du tableau d'arguments n'est pas NULL
+	{
 		if (!is_number(args[i]))
 		{
-			write(2, "Error\n", 6);
-			ft_lstclear(&(stacks.a), free);
-			ft_lstclear(&(stacks.b), free);
+			free_all(&stacks, args, argc, '1');
 			return (1);
 		}
 		value = malloc(sizeof(int));
 		if (!value)
 		{
-			write(2, "Error\n", 6);
-			ft_lstclear(&(stacks.a), free);
-			ft_lstclear(&(stacks.b), free);
+			free_all(&stacks, args, argc, '1');
 			return (1);
 		}
 		*value = ft_atoi(args[i]);
@@ -114,20 +87,6 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	sort_stack(&stacks);
-	//print_stack_a(stacks.a);
-	//print_stack_b(stacks.b);
-	if (argc == 1)// Si ft_split a été utilisé
-	{
-		i = 0;
-		while (args[i])
-		{
-			free(args[i]);
-			i++;
-		}
-		free(args);
-	}
-	ft_lstclear(&(stacks.a), free);
-	ft_lstclear(&(stacks.b), free);
-	//ft_printf("test\n");
+	free_all(&stacks, args, argc, '0');
 	return (0);
 }

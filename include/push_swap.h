@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:55:57 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/22 00:32:10 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/23 01:34:05 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_stacks {
 
 //ft_main.c
 int     is_number(char *str);
+void	free_all(t_stacks *stacks, char **args, int argc, char c);
 
 //ft_little_sort.c
 t_list	*find_max(t_list *stack);
