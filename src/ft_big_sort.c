@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 15:15:25 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/23 01:24:20 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/23 02:09:09 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	big_sort(t_stacks *stacks)
 		move_a_to_b(stacks);
 	}
 	while (stacks->b)
-		move_b_to_a(stacks);
+		pa(stacks);
 	current_index(stacks->a);
 	min_on_top(stacks, &stacks->a);
 }

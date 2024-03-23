@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:55:57 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/23 01:34:05 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/23 02:29:07 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,6 @@ void	set_target_a(t_stacks *stacks);
 void	cost_analysis_a(t_stacks *stacks);
 void	set_cheapest(t_list *stack);
 
-//ft_init_b_to_a.c
-void	init_nodes_b(t_stacks *stacks);
-void	set_target_b(t_stacks *stacks);
 
 //ft_move_a_to_b.c
 void	move_a_to_b(t_stacks *stacks);
@@ -55,9 +52,6 @@ t_list	*get_cheapest(t_list *head);
 void	rotate_booth(t_stacks *stacks, t_list *cheapest_node);
 void	rev_rotate_booth(t_stacks *stacks, t_list *cheapest_node);
 void	prep_for_push(t_stacks *stacks, t_list **stack, t_list *top_node, char stack_name);
-
-//ft_move_a_to_b.c
-void	move_b_to_a(t_stacks *stacks);
 
 //ft_swap.c
 void	swap(t_list **stack);
