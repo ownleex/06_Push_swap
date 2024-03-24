@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 00:49:26 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/01/18 05:09:03 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/24 19:47:51 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,19 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list	*nouveau;
+	t_list	*new;
 
-	nouveau = malloc(sizeof(t_list));
-	if (!nouveau)
+	new = malloc(sizeof(t_list));
+	if (!new)
 		return (NULL);
-	nouveau->content = content;
-	nouveau->next = NULL;
-	return (nouveau);
+	new->content = content;
+	new->next = NULL;
+	new->index = 0;
+	new->push_cost = 0;
+	new->above_median = false;
+	new->cheapest = false;
+	new->target_node = NULL;
+	return (new);
 }
 
 /*

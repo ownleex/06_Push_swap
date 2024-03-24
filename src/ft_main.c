@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:46 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/24 19:14:06 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/24 19:18:24 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,19 +107,11 @@ int	parse_args(int argc, char **argv, t_stacks *stacks, char ***args)
 	return (1);
 }
 
-void	init_vars(t_stacks *stacks)
-{
-	stacks->a->target_node = NULL;
-	stacks->a->push_cost = 0;
-	stacks->a->index = 0;
-}
-
 int	main(int argc, char **argv)
 {
 	t_stacks	stacks;
 	char		**args;
 
-	init_vars(&stacks);
 	if (argc < 2)
 	{
 		solo_exit();
