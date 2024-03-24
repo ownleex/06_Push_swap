@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:44:33 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/24 18:28:17 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/24 19:51:54 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_atoi(const char *str)
 {
-	int	result;
+	int		result;
 	int		sign;
 	int		i;
 
