@@ -6,13 +6,37 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:46 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/23 01:51:28 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/24 17:05:06 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_all(t_stacks *stacks, char **args, int argc, char c)
+int	check_duplicate(t_stacks *stacks)
+{
+	t_list	*current;
+	t_list	*next;
+	int		*current_val;
+	int		*next_val;
+
+	current = stacks->a;
+	while (current != NULL && current->next != NULL)
+	{
+		current_val = (int *)current->content;
+		next = current->next;
+		while (next != NULL)
+		{
+			next_val = (int *)next->content;
+			if (*current_val == *next_val)
+				return (1);
+			next = next->next;
+		}
+		current = current->next;
+	}
+	return (0);
+}
+
+int	free_all(t_stacks *stacks, char **args, int argc, int error)
 {
 	int		i;
 
@@ -28,8 +52,12 @@ void	free_all(t_stacks *stacks, char **args, int argc, char c)
 	}
 	ft_lstclear(&(stacks->a), free);
 	ft_lstclear(&(stacks->b), free);
-	if (c == '1')
+	if (error)
+	{
 		write(2, "Error\n", 6);
+		return (1);
+	}
+	return (0);
 }
 
 int	is_number(char *str)
@@ -50,43 +78,48 @@ int	is_number(char *str)
 	return (1);
 }
 
-int	main(int argc, char **argv)
+int	parse_args(int argc, char **argv, t_stacks *stacks, char ***args)
 {
-	int			i;
-	t_stacks	stacks;
-	int			*value;
-	char		**args;
+	int		i;
+	long	*value;
 
-	stacks.a = NULL;
-	stacks.b = NULL;
-	if (argc < 3 && argc != 2)
-	{
-		ft_printf("Usage: %s number1 number2 ...\n", argv[0]);
-		return (1);
-	}
 	if (argc == 2)
-		args = ft_split(argv[1], ' ');
+		*args = ft_split(argv[1], ' ');
 	else
-		args = argv + 1;
+		*args = argv + 1;
 	i = 0;
-	while (args[i])
+	while ((*args)[i])
 	{
-		if (!is_number(args[i]))
-		{
-			free_all(&stacks, args, argc, '1');
-			return (1);
-		}
+		if (!is_number((*args)[i]))
+			return (0);
 		value = malloc(sizeof(int));
 		if (!value)
-		{
-			free_all(&stacks, args, argc, '1');
-			return (1);
-		}
-		*value = ft_atoi(args[i]);
-		ft_lstadd_back(&(stacks.a), ft_lstnew(value));
+			return (0);
+		*value = ft_atoi((*args)[i]);
+		if (*value > INT_MAX || *value < INT_MIN)
+			return (0);
+		ft_lstadd_back(&(stacks->a), ft_lstnew(value));
 		i++;
 	}
+	return (1);
+}
+
+int	main(int argc, char **argv)
+{
+	t_stacks	stacks;
+	char		**args;
+	int			result;
+
+	if (argc < 2)
+		return (solo_exit());
+	stacks.a = NULL;
+	stacks.b = NULL;
+	args = NULL;
+	if (!parse_args(argc, argv, &stacks, &args))
+		return (free_all(&stacks, args, argc, 1));
+	if (check_duplicate(&stacks))
+		return (free_all(&stacks, args, argc, 1));
 	sort_stack(&stacks);
-	free_all(&stacks, args, argc, '0');
-	return (0);
+	result = free_all(&stacks, args, argc, 0);
+	return (result);
 }

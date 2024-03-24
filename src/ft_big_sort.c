@@ -6,11 +6,17 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 15:15:25 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/23 02:40:59 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/24 17:05:13 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	solo_exit(void)
+{
+	write(2, "Error\n", 6);
+	return (1);
+}
 
 t_list	*find_min(t_list *head)
 {

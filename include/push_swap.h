@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:55:57 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/23 02:41:45 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/24 17:05:54 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ typedef struct s_stacks {
 
 //ft_main.c
 int		main(int argc, char **argv);
+int		parse_args(int argc, char **argv, t_stacks *stacks, char ***args);
 int     is_number(char *str);
-void	free_all(t_stacks *stacks, char **args, int argc, char c);
+int		free_all(t_stacks *stacks, char **args, int argc, int error);
+int		check_duplicate(t_stacks *stacks);
 
 //ft_little_sort.c
 t_list	*find_max(t_list *stack);
@@ -38,6 +40,7 @@ void	sort_stack(t_stacks *stacks);
 void	big_sort(t_stacks *stacks);
 void	min_on_top(t_stacks *stacks, t_list **a);
 t_list	*find_min(t_list *head);
+int		solo_exit(void);
 
 //ft_init_a_to_b.c
 void	init_nodes(t_stacks *stacks);
@@ -45,7 +48,6 @@ void	current_index(t_list *stack);
 void	set_target(t_stacks *stacks);
 void	cost_analysis(t_stacks *stacks);
 void	set_cheapest(t_list *stack);
-
 
 //ft_move_a_to_b.c
 void	move_a_to_b(t_stacks *stacks);
