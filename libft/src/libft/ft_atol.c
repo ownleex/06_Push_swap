@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 15:44:33 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/24 18:28:17 by ayarmaya         ###   ########.fr       */
+/*   Created: 2024/03/24 18:20:45 by ayarmaya          #+#    #+#             */
+/*   Updated: 2024/03/24 18:28:08 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-int	ft_atoi(const char *str)
+long	ft_atol(const char *str)
 {
-	int	result;
+	long	result;
 	int		sign;
 	int		i;
 
@@ -37,11 +37,3 @@ int	ft_atoi(const char *str)
 	}
 	return (result * sign);
 }
-
-/*
-int	main(void)
-{
-	printf("%d\n", ft_atoi("    -432432dgs"));
-	return (0);
-}
-*/

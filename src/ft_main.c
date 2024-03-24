@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:46 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/24 17:53:53 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/24 18:23:01 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	parse_args(int argc, char **argv, t_stacks *stacks, char ***args)
 		value = malloc(sizeof(long));
 		if (!value)
 			return (0);
-		*value = ft_atoi_long((*args)[i]);
+		*value = ft_atol((*args)[i]);
 		if (*value > INT_MAX || *value < INT_MIN)
 		{
 			free(value);
