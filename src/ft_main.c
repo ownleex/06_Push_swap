@@ -6,11 +6,17 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:46 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/24 17:05:06 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/24 17:15:40 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	solo_exit(void)
+{
+	write(2, "Error\n", 6);
+	return (1);
+}
 
 int	check_duplicate(t_stacks *stacks)
 {
@@ -78,7 +84,7 @@ int	is_number(char *str)
 	return (1);
 }
 
-int	parse_args(int argc, char **argv, t_stacks *stacks, char ***args)
+int	parse_and_validate_args(int argc, char **argv, t_stacks *stacks, char ***args)
 {
 	int		i;
 	long	*value;
@@ -115,7 +121,7 @@ int	main(int argc, char **argv)
 	stacks.a = NULL;
 	stacks.b = NULL;
 	args = NULL;
-	if (!parse_args(argc, argv, &stacks, &args))
+	if (!parse_and_validate_args(argc, argv, &stacks, &args))
 		return (free_all(&stacks, args, argc, 1));
 	if (check_duplicate(&stacks))
 		return (free_all(&stacks, args, argc, 1));
