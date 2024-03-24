@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:27:39 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/23 02:41:56 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/24 18:15:49 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	set_target(t_stacks *stacks)
 {
 	t_list	*current_a;
 	t_list	*current_b;
-	t_list	*target_node;
 	long	best_index;
 
 	current_a = stacks->a;
@@ -68,21 +67,18 @@ void	set_target(t_stacks *stacks)
 	{
 		best_index = INT_MIN;
 		current_b = stacks->b;
-		target_node = NULL;
 		while (current_b)
 		{
 			if (*(int *)current_b->content < *(int *)current_a->content && \
 			*(int *)current_b->content > best_index)
 			{
 				best_index = *(int *)current_b->content;
-				target_node = current_b;
+				current_a->target_node = current_b;
 			}
 			current_b = current_b->next;
 		}
 		if (best_index == INT_MIN)
 			current_a->target_node = find_max(stacks->b);
-		else
-			current_a->target_node = target_node;
 		current_a = current_a->next;
 	}
 }
