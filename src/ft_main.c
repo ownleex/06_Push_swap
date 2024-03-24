@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:46 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/24 17:35:29 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/24 17:53:53 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	is_number(char *str)
 	return (1);
 }
 
-int	parse_and_validate_args(int argc, char **argv, t_stacks *stacks, char ***args)
+int	parse_args(int argc, char **argv, t_stacks *stacks, char ***args)
 {
 	int		i;
 	long	*value;
@@ -95,9 +95,12 @@ int	parse_and_validate_args(int argc, char **argv, t_stacks *stacks, char ***arg
 		value = malloc(sizeof(long));
 		if (!value)
 			return (0);
-		*value = ft_atoi((*args)[i]);
+		*value = ft_atoi_long((*args)[i]);
 		if (*value > INT_MAX || *value < INT_MIN)
+		{
+			free(value);
 			return (0);
+		}
 		ft_lstadd_back(&(stacks->a), ft_lstnew(value));
 		i++;
 	}
@@ -108,18 +111,23 @@ int	main(int argc, char **argv)
 {
 	t_stacks	stacks;
 	char		**args;
-	int			result;
 
 	if (argc < 2)
 		return (solo_exit());
 	stacks.a = NULL;
 	stacks.b = NULL;
 	args = NULL;
-	if (!parse_and_validate_args(argc, argv, &stacks, &args))
-		return (free_all(&stacks, args, argc, 1));
+	if (!parse_args(argc, argv, &stacks, &args))
+	{
+		free_all(&stacks, args, argc, 1);
+		return (1);
+	}
 	if (check_duplicate(&stacks))
-		return (free_all(&stacks, args, argc, 1));
+	{
+		free_all(&stacks, args, argc, 1);
+		return (1);
+	}
 	sort_stack(&stacks);
-	result = free_all(&stacks, args, argc, 0);
-	return (result);
+	free_all(&stacks, args, argc, 0);
+	return (0);
 }

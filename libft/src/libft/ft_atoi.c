@@ -6,13 +6,13 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:44:33 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/24 16:12:53 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/24 17:42:42 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-long	ft_atoi(const char *str)
+long	ft_atoi_long(const char *str)
 {
 	long	result;
 	int		sign;
