@@ -6,17 +6,11 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:46 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/24 17:15:40 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/24 17:35:29 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	solo_exit(void)
-{
-	write(2, "Error\n", 6);
-	return (1);
-}
 
 int	check_duplicate(t_stacks *stacks)
 {
@@ -98,7 +92,7 @@ int	parse_and_validate_args(int argc, char **argv, t_stacks *stacks, char ***arg
 	{
 		if (!is_number((*args)[i]))
 			return (0);
-		value = malloc(sizeof(int));
+		value = malloc(sizeof(long));
 		if (!value)
 			return (0);
 		*value = ft_atoi((*args)[i]);
