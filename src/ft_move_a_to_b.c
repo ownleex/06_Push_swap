@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 17:10:59 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/23 00:14:18 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/25 02:15:48 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ void	move_a_to_b(t_stacks *stacks)
 	t_list	*cheapest_node;
 
 	cheapest_node = get_cheapest(stacks->a);
-	if (cheapest_node->above_median && cheapest_node->target_node->above_median)
+	if (cheapest_node->above_median && \
+	cheapest_node->target_node->above_median)
 		rotate_booth(stacks, cheapest_node);
 	else if (!(cheapest_node->above_median) && \
 	!(cheapest_node->target_node->above_median))

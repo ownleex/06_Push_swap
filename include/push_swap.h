@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:55:57 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/24 17:05:54 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/25 00:27:55 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	sort_stack(t_stacks *stacks);
 void	big_sort(t_stacks *stacks);
 void	min_on_top(t_stacks *stacks, t_list **a);
 t_list	*find_min(t_list *head);
-int		solo_exit(void);
 
 //ft_init_a_to_b.c
 void	init_nodes(t_stacks *stacks);

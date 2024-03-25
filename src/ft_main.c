@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:46 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/24 19:51:40 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/25 00:27:48 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 	{
-		solo_exit();
+		write(2, "Error\n", 6);
 		return (1);
 	}
 	stacks.a = NULL;

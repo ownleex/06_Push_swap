@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:39:43 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/20 17:32:08 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/25 01:21:47 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,14 @@ void	sort_three(t_stacks *stacks)
 int	count_elements(t_list *stack)
 {
 	int		count;
+	t_list	*temp;
 
 	count = 0;
-	while (stack)
+	temp = stack;
+	while (temp)
 	{
 		count++;
-		stack = stack->next;
+		temp = temp->next;
 	}
 	return (count);
 }
