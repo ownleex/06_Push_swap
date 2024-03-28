@@ -6,19 +6,21 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 15:15:25 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/25 02:59:25 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/28 00:01:21 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*find_min(t_list *head)
+t_list	*find_min(t_list *stack)
 {
 	t_list	*min;
 	t_list	*current;
 
-	min = head;
-	current = head->next;
+	if (!stack)
+		return (NULL);
+	min = stack;
+	current = stack->next;
 	while (current != NULL)
 	{
 		if (*((int *)current->content) < *((int *)min->content))
@@ -30,9 +32,12 @@ t_list	*find_min(t_list *head)
 
 void	min_on_top(t_stacks *stacks, t_list **a)
 {
-	while ((*a)->content != find_min(*a)->content)
+	t_list	*min_node;
+
+	min_node = find_min(*a);
+	while (*a != min_node)
 	{
-		if (find_min(*a)->above_median)
+		if (min_node->above_median)
 			ra(stacks);
 		else
 			rra(stacks);
@@ -52,6 +57,6 @@ void	big_sort(t_stacks *stacks)
 	}
 	while (stacks->b)
 		pa(stacks);
-	current_index(stacks->a);
+	set_index_median(stacks->a);
 	min_on_top(stacks, &stacks->a);
 }

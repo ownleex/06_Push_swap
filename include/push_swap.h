@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:55:57 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/25 00:27:55 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/28 00:59:46 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,21 @@ void	sort_stack(t_stacks *stacks);
 //ft_big_sort.c
 void	big_sort(t_stacks *stacks);
 void	min_on_top(t_stacks *stacks, t_list **a);
-t_list	*find_min(t_list *head);
+t_list	*find_min(t_list *stack);
 
-//ft_init_a_to_b.c
+//ft_init.c
 void	init_nodes(t_stacks *stacks);
-void	current_index(t_list *stack);
+void	set_index_median(t_list *stack);
 void	set_target(t_stacks *stacks);
 void	cost_analysis(t_stacks *stacks);
 void	set_cheapest(t_list *stack);
 
-//ft_move_a_to_b.c
+//ft_move.c
 void	move_a_to_b(t_stacks *stacks);
-t_list	*get_cheapest(t_list *head);
+t_list	*get_cheapest(t_list *stack);
 void	rotate_booth(t_stacks *stacks, t_list *cheapest_node);
 void	rev_rotate_booth(t_stacks *stacks, t_list *cheapest_node);
-void	prep_for_push(t_stacks *stacks, t_list **stack, t_list *top_node, char stack_name);
+void	prep_for_push(t_stacks *stacks, t_list **stack, t_list *cheapest_node, char stack_name);
 
 //ft_swap.c
 void	swap(t_list **stack);

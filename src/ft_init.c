@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:27:39 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/25 03:21:40 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/28 00:01:21 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,17 @@ void	cost_analysis(t_stacks *stacks)
 	len_b = count_elements(stacks->b);
 	while (current_a)
 	{
-		current_a->push_cost = current_a->index;
-		if (!(current_a->above_median))
-			current_a->push_cost = len_a - (current_a->index);
-		if (current_a->target_node && current_a->target_node->above_median)
-			current_a->push_cost += current_a->target_node->index;
-		else if (current_a->target_node)
-			current_a->push_cost += len_b - current_a->target_node->index;
+		if (current_a->above_median)
+			current_a->push_cost = current_a->index;
+		else
+			current_a->push_cost = len_a - current_a->index;
+		if (current_a->target_node)
+		{
+			if (current_a->target_node->above_median)
+				current_a->push_cost += current_a->target_node->index;
+			else
+				current_a->push_cost += len_b - current_a->target_node->index;
+		}
 		current_a = current_a->next;
 	}
 }
@@ -83,7 +87,7 @@ void	set_target(t_stacks *stacks)
 	}
 }
 
-void	current_index(t_list *stack)
+void	set_index_median(t_list *stack)
 {
 	t_list	*current;
 	int		i;
@@ -105,8 +109,8 @@ void	current_index(t_list *stack)
 
 void	init_nodes(t_stacks *stacks)
 {
-	current_index(stacks->a);
-	current_index(stacks->b);
+	set_index_median(stacks->a);
+	set_index_median(stacks->b);
 	set_target(stacks);
 	cost_analysis(stacks);
 	set_cheapest(stacks->a);

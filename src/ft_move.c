@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_move_a_to_b.c                                   :+:      :+:    :+:   */
+/*   ft_move.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 17:10:59 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/25 03:03:03 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/28 01:03:35 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 void	prep_for_push(t_stacks *stacks, t_list **stack, \
-t_list *top_node, char stack_name)
+t_list *cheapest_node, char stack_name)
 {
-	while (*stack != top_node)
+	while (*stack != cheapest_node)
 	{
 		if (stack_name == 'a')
 		{
-			if (top_node->above_median)
+			if (cheapest_node->above_median)
 				ra(stacks);
 			else
 				rra(stacks);
 		}
 		else if (stack_name == 'b')
 		{
-			if (top_node->above_median)
+			if (cheapest_node->above_median)
 				rb(stacks);
 			else
 				rrb(stacks);
@@ -48,14 +48,14 @@ void	rotate_booth(t_stacks *stacks, t_list *cheapest_node)
 		rr(stacks);
 }
 
-t_list	*get_cheapest(t_list *head)
+t_list	*get_cheapest(t_list *stack)
 {
 	t_list	*current;
 	t_list	*cheapest_node;
 
-	current = head;
+	current = stack;
 	cheapest_node = NULL;
-	while (current != NULL)
+	while (current)
 	{
 		if (current->cheapest)
 		{

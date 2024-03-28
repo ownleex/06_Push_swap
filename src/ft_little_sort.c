@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:39:43 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/25 01:21:47 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/27 18:23:20 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,20 @@
 
 t_list	*find_max(t_list *stack)
 {
-	t_list	*max_node;
-	int		max;
+	t_list	*max;
+	t_list	*current;
 
 	if (!stack)
 		return (NULL);
-	max = *(int *)stack->content;
-	max_node = stack;
-	while (stack)
+	max = stack;
+	current = stack->next;
+	while (current != NULL)
 	{
-		if (*(int *)stack->content > max)
-		{
-			max = *(int *)stack->content;
-			max_node = stack;
-		}
-		stack = stack->next;
+		if (*((int *)current->content) > *((int *)max->content))
+			max = current;
+		current = current->next;
 	}
-	return (max_node);
+	return (max);
 }
 
 void	sort_three(t_stacks *stacks)

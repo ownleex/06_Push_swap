@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:46 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/25 00:27:48 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/27 12:06:17 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ int	check_duplicate(t_stacks *stacks)
 		{
 			next_val = (int *)next->content;
 			if (*current_val == *next_val)
-				return (1);
+				return (0);
 			next = next->next;
 		}
 		current = current->next;
 	}
-	return (0);
+	return (1);
 }
 
 int	free_all(t_stacks *stacks, char **args, int argc, int error)
@@ -125,7 +125,7 @@ int	main(int argc, char **argv)
 		free_all(&stacks, args, argc, 1);
 		return (1);
 	}
-	if (check_duplicate(&stacks))
+	if (!check_duplicate(&stacks))
 	{
 		free_all(&stacks, args, argc, 1);
 		return (1);
