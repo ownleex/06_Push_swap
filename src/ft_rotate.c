@@ -6,12 +6,13 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:30:02 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/19 17:58:53 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/28 23:11:37 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//The first element becomes the last one
 void	rotate(t_list **stack)
 {
 	t_list	*first;
