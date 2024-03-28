@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:46 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/27 12:06:17 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/28 17:05:56 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,17 @@
 int	check_duplicate(t_stacks *stacks)
 {
 	t_list	*current;
-	t_list	*next;
-	int		*current_val;
-	int		*next_val;
+	t_list	*compare;
 
 	current = stacks->a;
-	while (current != NULL && current->next != NULL)
+	while (current != NULL)
 	{
-		current_val = (int *)current->content;
-		next = current->next;
-		while (next != NULL)
+		compare = current->next;
+		while (compare != NULL)
 		{
-			next_val = (int *)next->content;
-			if (*current_val == *next_val)
+			if (*(int *)current->content == *(int *)compare->content)
 				return (0);
-			next = next->next;
+			compare = compare->next;
 		}
 		current = current->next;
 	}

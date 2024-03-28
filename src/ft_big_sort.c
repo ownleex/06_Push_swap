@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 15:15:25 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/28 00:01:21 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/28 22:19:51 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_list	*find_min(t_list *stack)
 		return (NULL);
 	min = stack;
 	current = stack->next;
-	while (current != NULL)
+	while (current)
 	{
 		if (*((int *)current->content) < *((int *)min->content))
 			min = current;

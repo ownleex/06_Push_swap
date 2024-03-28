@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:55:57 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/28 00:59:46 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/28 22:22:40 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,16 @@
 # include "libft.h"
 # include <limits.h>
 
-typedef struct s_stacks {
-	t_list *a;
-	t_list *b;
-} t_stacks;
+typedef struct s_stacks
+{
+	t_list	*a;
+	t_list	*b;
+}	t_stacks;
 
 //ft_main.c
 int		main(int argc, char **argv);
 int		parse_args(int argc, char **argv, t_stacks *stacks, char ***args);
-int     is_number(char *str);
+int		is_number(char *str);
 int		free_all(t_stacks *stacks, char **args, int argc, int error);
 int		check_duplicate(t_stacks *stacks);
 
@@ -53,7 +54,8 @@ void	move_a_to_b(t_stacks *stacks);
 t_list	*get_cheapest(t_list *stack);
 void	rotate_booth(t_stacks *stacks, t_list *cheapest_node);
 void	rev_rotate_booth(t_stacks *stacks, t_list *cheapest_node);
-void	prep_for_push(t_stacks *stacks, t_list **stack, t_list *cheapest_node, char stack_name);
+void	prep_for_push(t_stacks *stacks, t_list **stack, \
+t_list *cheapest_node, char stack_name);
 
 //ft_swap.c
 void	swap(t_list **stack);

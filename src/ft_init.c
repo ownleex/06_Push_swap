@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:27:39 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/28 00:01:21 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/28 22:06:23 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 void	set_cheapest(t_list *stack)
 {
-	long	cheapest_value;
+	long	cheapest_cost;
 	t_list	*cheapest_node;
 
 	cheapest_node = NULL;
 	if (!stack)
 		return ;
-	cheapest_value = INT_MAX;
+	cheapest_cost = INT_MAX;
 	while (stack)
 	{
-		if (stack->push_cost < cheapest_value)
+		if (stack->push_cost < cheapest_cost)
 		{
-			cheapest_value = stack->push_cost;
+			cheapest_cost = stack->push_cost;
 			cheapest_node = stack;
 		}
 		stack = stack->next;
