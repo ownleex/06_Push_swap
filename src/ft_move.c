@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 17:10:59 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/28 01:42:29 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/28 01:53:24 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,22 @@ void	rev_rotate_booth(t_stacks *stacks, t_list *cheapest_node)
 {
 	while (stacks->b != cheapest_node->target_node && \
 	stacks->a != cheapest_node)
+	{
 		rrr(stacks);
+		if (stacks->a == cheapest_node)
+			break ;
+	}
 }
 
 void	rotate_booth(t_stacks *stacks, t_list *cheapest_node)
 {
 	while (stacks->b != cheapest_node->target_node && \
 	stacks->a != cheapest_node)
+	{
 		rr(stacks);
+		if (stacks->a == cheapest_node)
+			break ;
+	}
 }
 
 t_list	*get_cheapest(t_list *stack)
