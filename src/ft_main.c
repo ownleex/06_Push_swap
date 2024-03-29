@@ -6,11 +6,13 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:46 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/29 23:19:08 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/30 00:27:56 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+//manque tri pour pile de 5 en moins de 12 mouvements
 
 int	check_duplicate(t_stacks *stacks)
 {
