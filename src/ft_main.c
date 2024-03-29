@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:12:46 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/28 17:05:56 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/03/29 23:19:08 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,10 +109,7 @@ int	main(int argc, char **argv)
 	char		**args;
 
 	if (argc < 2)
-	{
-		write(2, "Error\n", 6);
-		return (1);
-	}
+		return (0);
 	stacks.a = NULL;
 	stacks.b = NULL;
 	args = NULL;
