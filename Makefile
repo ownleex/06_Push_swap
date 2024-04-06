@@ -6,7 +6,7 @@
 #    By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/01 18:12:20 by ayarmaya          #+#    #+#              #
-#    Updated: 2024/03/28 22:24:24 by ayarmaya         ###   ########.fr        #
+#    Updated: 2024/04/06 04:46:03 by ayarmaya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC			=	ft_push.c \
 				ft_reverse.c \
 				ft_little_sort.c \
 				ft_big_sort.c \
+				ft_sort_five.c \
 				ft_init.c \
 				ft_move.c \
 				ft_main.c

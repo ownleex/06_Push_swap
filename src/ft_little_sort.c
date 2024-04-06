@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:39:43 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/03/27 18:23:20 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/04/06 04:45:20 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ void	sort_stack(t_stacks *stacks)
 			sa(stacks);
 		else if (count_elements(stacks->a) == 3)
 			sort_three(stacks);
+		else if (count_elements(stacks->a) == 5)
+			sort_five(stacks);
 		else
 			big_sort(stacks);
 	}
