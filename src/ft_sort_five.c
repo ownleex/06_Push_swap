@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 04:44:56 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/04/06 04:54:02 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/04/06 05:00:33 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	sort_two(t_stacks *stacks, char stack_name)
 		sb(stacks);
 }
 
-void	push_smallest_to_b(t_stacks *stacks)
+void	push_two_smallest_to_b(t_stacks *stacks)
 {
 	int		i;
 	int		size;
@@ -62,7 +62,7 @@ void	push_smallest_to_b(t_stacks *stacks)
 
 void	sort_five(t_stacks *stacks)
 {
-	push_smallest_to_b(stacks);
+	push_two_smallest_to_b(stacks);
 	sort_three(stacks);
 	sort_two(stacks, 'b');
 	pa(stacks);
